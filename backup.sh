@@ -15,7 +15,7 @@ VOLUME_LIST=$(cat $TMP_FILE | grep ${INSTANCE_ID} | awk '{ print $2 }')
 sync
 
 for volume in $(echo $VOLUME_LIST); do
-   NAME=$(cat $TMP_FILE | grep Name | grep $volume | awk '{ print $5 }')
+   NAME=$(cat $TMP_FILE | grep ATTACHMENT | grep $volume | awk '{ print $4 }')
    DESC=$NAME-$(date +%m-%d-%Y)
    ec2-create-snapshot -C $EC2_CERT -K $EC2_PRIVATE_KEY -d $DESC $volume
 done
