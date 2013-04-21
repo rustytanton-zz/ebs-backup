@@ -1,7 +1,7 @@
-Amazon EC2 Daily Linux Volume Snapshots
-=======================================
+Amazon EBS Linux Volume Snapshots
+=================================
 
-Finds all attached EBS volumes, creates snapshots.
+Finds all attached EBS volumes on a Linux EC2 AMI, creates snapshots.
 
 Installation
 ------------
@@ -16,8 +16,8 @@ Presuming you already have an AWS account and an EC2 AMI running Linux:
 
 Usage
 -----
-Set up a cron job to run the backup script from this repo daily. 
+Set up a cron job to run the backup script from this repo at whatever interval you'd like. 
 
-Here is an example crontab, it sets environment variables from ~/.bash_profile before running:
+Here is an example crontab which runs daily, it sets environment variables from ~/.bash_profile before running:
 
-	@daily . $HOME/.bash_profile; /path/to/ec2-daily-backup/backup.sh
+	@daily . $HOME/.bash_profile; /path/to/ebs-backup/backup.sh
