@@ -8,7 +8,7 @@ INSTANCE_ID=`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`
 
 TMP_FILE=/tmp/ec2-volume-backup-$RANDOM
 
-$EC2_BIN/ec2-describe-volumes -C $EC2_CERT -K $EC2_PRIVATE_KEY > $TMP_FILE
+ec2-describe-volumes -C $EC2_CERT -K $EC2_PRIVATE_KEY > $TMP_FILE
 
 VOLUME_LIST=$(cat $TMP_FILE | grep ${INSTANCE_ID} | awk '{ print $2 }')
 
